@@ -16,11 +16,11 @@ require('dotenv').config();
 // use 
 app.use(express.json())
 app.use(express.static('public'))
-app.use(cors({
-    origin  : 'http://localhost:3000',
-    methods: ["GET", "POST"],
-    credentials: true
-}))
+// app.use(cors({
+//     origin  : 'http://localhost:3000',
+//     methods: ["GET", "POST"],
+//     credentials: true
+// }))
 
 
 // connect to the database
