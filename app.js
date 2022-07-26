@@ -32,6 +32,8 @@ app.use(login)
 app.use(bookList)
 app.use(addBook)
 
-app.listen(3001, ()=>{
+const port = process.env.PORT || 3001
+
+app.listen(port, ()=>{
     console.log("up on port 3000")
 })
