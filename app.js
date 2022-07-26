@@ -21,6 +21,7 @@ app.use(express.static('public'))
 //     methods: ["GET", "POST"],
 //     credentials: true
 // }))
+app.use(cors())
 
 
 // connect to the database
