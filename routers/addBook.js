@@ -1,11 +1,22 @@
 const express = require("express")
 const User = require("../modules/User")
 const JWT = require("jsonwebtoken")
+const axios = require('axios');
+const { json, urlencoded } = require("express");
 require('dotenv').config();
 
 const SECRET = process.env.SECRT
 
 const router = express.Router()
+
+
+router.post('/fetchGoolge/api', (req,res)=>{
+    const {bookName} = req.body
+    const url = encodeURI(`https://www.googleapis.com/books/v1/volumes?q=${bookName}&maxResults=8`)
+    axios.get(url).then(resData=> res.send(resData.data))
+    // console.log(data)
+    // res.json('data')
+})
 
 // add book 
 router.post('/addBook/api', async(req,res)=>{
