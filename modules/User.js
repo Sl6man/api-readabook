@@ -29,9 +29,30 @@ const user = new mongoose.Schema({
             bookId: String,
             createAt: String,
             state: String,
-            language: String
+            language: String,
+            rated:{
+                type: Boolean,
+                default: false
+            }
         }
-    ]
+    ],
+    following:[
+        {
+            userId: String,
+            followingUsername: String
+        }
+    ],
+    followers:[
+        {
+            userId: String,
+            followingUsername: String
+        }
+    ],
+    rate: [{
+        rating: String,
+        description: String,
+        bookId: String
+    }]
 })
 
 const User = mongoose.model('user', user)

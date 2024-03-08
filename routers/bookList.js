@@ -79,14 +79,14 @@ router.post('/progress/api', (req,res)=>{
 
     const bookProgress = progress.split(' ')[0]
     const mongoId = progress.split(' ')[1]
-
     JWT.verify(token, SECRET, async(err, decoded)=>{
         const user = await User.findById(decoded.data.id)
         const book = user.books.find(book => book._id == mongoId)
         book.progress = bookProgress
         user.save()
         res.json({
-            pageCount: book.pages
+            pageCount: book.pages,
+            mongoId: book._id
         })
     })
 })

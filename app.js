@@ -9,6 +9,7 @@ const createUser = require("./routers/creatUser")
 const login = require('./routers/login')
 const addBook = require('./routers/addBook')
 const bookList = require('./routers/bookList')
+const users = require('./routers/users')
 require('dotenv').config();
 
 
@@ -32,6 +33,7 @@ app.use(createUser)
 app.use(login)
 app.use(bookList)
 app.use(addBook)
+app.use(users)
 
 const port = process.env.PORT || 3001
 
